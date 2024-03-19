@@ -24,7 +24,7 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
         app.menu();
-        int opcao = app.readInt("Digite a opção desejada: ", true);
+        int opcao = app.readInt("Digite a opção desejada: ", false);
         while (opcao != 0) {
             try {
                 if (opcao >= 1 && opcao <= 8) {
