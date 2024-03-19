@@ -4,7 +4,7 @@ public class Exercicio7 {
     private App app = new App();
     
     public void solved(){
-        double factoryCost = app.readDouble("Digite o custo de fábrica do carro: ");
+        double factoryCost = app.readDouble("Digite o custo de fábrica do carro: ",false);
 
         double consumerCost = calculate(factoryCost);
 

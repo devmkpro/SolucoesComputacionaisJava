@@ -4,9 +4,9 @@ public class Exercicio5 {
     private App app = new App();
     
     public void solved(){
-        double nota1 = app.readDouble("Digite a primeira nota: ");
-        double nota2 = app.readDouble("Digite a segunda nota: "); 
-        double nota3 = app.readDouble("Digite a terceira nota: ");
+        double nota1 = app.readDouble("Digite a primeira nota: ", false);
+        double nota2 = app.readDouble("Digite a segunda nota: ", false);
+        double nota3 = app.readDouble("Digite a terceira nota: ", false);
 
         double mediaFinal = calculate(nota1, nota2, nota3);
 

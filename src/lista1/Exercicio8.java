@@ -4,12 +4,12 @@ public class Exercicio8 {
     private App app = new App();
 
     public void solved() {
-        double a = app.readDouble("Digite o valor de a: ");
-        double b = app.readDouble("Digite o valor de b: ");
-        double c = app.readDouble("Digite o valor de c: ");
-        double d = app.readDouble("Digite o valor de d: ");
-        double e = app.readDouble("Digite o valor de e: ");
-        double f = app.readDouble("Digite o valor de f: ");
+        double a = app.readDouble("Digite o valor de a: ",false);
+        double b = app.readDouble("Digite o valor de b: ",false);
+        double c = app.readDouble("Digite o valor de c: ",false);
+        double d = app.readDouble("Digite o valor de d: ",false);
+        double e = app.readDouble("Digite o valor de e: ",false);
+        double f = app.readDouble("Digite o valor de f: ",false);
 
         double[] result = calculate(a, b, c, d, e, f);
         System.out.println("O valor de x é: " + result[0]);

@@ -4,7 +4,7 @@ public class Exercicio6 {
     private App app = new App();
     
     public void solved(){
-        int duracaoSegundos = app.readInt("Digite a duração do evento em segundos: ");
+        int duracaoSegundos = app.readInt("Digite a duração do evento em segundos: ",false);
 
         int[] duracao = calculate(duracaoSegundos);
 

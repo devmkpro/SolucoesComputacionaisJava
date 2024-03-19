@@ -4,9 +4,9 @@ public class Exercicio3 {
     private App app = new App();
     
     public void solved(){
-        int age = app.readInt("Digite a idade em anos: ");
-        int months = app.readInt("Digite a idade em meses: "); 
-        int days = app.readInt("Digite a idade em dias: ");
+        int age = app.readInt("Digite a idade em anos: ", false);
+        int months = app.readInt("Digite a idade em meses: ", false);
+        int days = app.readInt("Digite a idade em dias: ", false);
 
         int totalDays = calculate(age, months, days);
 

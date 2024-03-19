@@ -4,7 +4,7 @@ public class Exercicio4 {
     private App app = new App();
     
     public void solved(){
-        int totalDays = app.readInt("Digite a idade em dias: ");
+        int totalDays = app.readInt("Digite a idade em dias: ", false);
 
         int[] idade = calculate(totalDays);
 

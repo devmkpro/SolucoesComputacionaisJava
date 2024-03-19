@@ -16,7 +16,7 @@ public class App {
         System.out.println("4 - Exercicio 4");
         System.out.println("5 - Exercicio 5");
         System.out.println("6 - Exercicio 6");
-        System.out.println("7 - Exercicio 7");
+        System.out. println("7 - Exercicio 7");
         System.out.println("8 - Exercicio 8");
         System.out.println("0 - Sair");
     }
@@ -24,7 +24,7 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
         app.menu();
-        int opcao = app.readInt("Digite a opção desejada: ");
+        int opcao = app.readInt("Digite a opção desejada: ", true);
         while (opcao != 0) {
             try {
                 if (opcao >= 1 && opcao <= 8) {
@@ -41,20 +41,19 @@ public class App {
             System.out.println("Pressione enter para continuar");
             sc.nextLine();
             app.menu();
-            opcao = app.readInt("Digite a opção desejada: ");
+            opcao = app.readInt("Digite a opção desejada: ", true);
         }
     }
 
-    public double readDouble(String message) {
-        return readNumber(message, Double::parseDouble);
+    public double readDouble(String message, Boolean isPositive) {
+        return readNumber(message, Double::parseDouble, isPositive);
     }
 
-    public int readInt(String message) {
-        return readNumber(message, Integer::parseInt);
+    public int readInt(String message, Boolean isPositive) {
+        return readNumber(message, Integer::parseInt, isPositive);
     }
-
-    
-    private <T> T readNumber(String message, NumberParser<T> parser) {
+  
+    private <T> T readNumber(String message, NumberParser<T> parser, Boolean isPositive) {
         boolean isValid = false;
         T number = null;
         while (!isValid) {
@@ -64,6 +63,17 @@ public class App {
                 isValid = true;
             } catch (NumberFormatException e) {
                 System.out.println("Número inválido");
+            }
+
+            if (isPositive && isValid) {
+                if (number instanceof Double) { // transformar em double para melhorar a precisão
+                    isValid = (Double) number > 0;
+                } else if (number instanceof Integer) {
+                    isValid = (Integer) number > 0;
+                }
+                if (!isValid) {
+                    System.out.println("Número deve ser positivo");
+                }
             }
         }
         return number;
@@ -83,7 +93,7 @@ public class App {
         }
     }
 
-    private interface NumberParser<T> {
+    private interface NumberParser<T> { // classe abstrata
         T parse(String input) throws NumberFormatException;
     }
 }
