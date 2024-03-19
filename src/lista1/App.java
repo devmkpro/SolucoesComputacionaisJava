@@ -41,19 +41,19 @@ public class App {
             System.out.println("Pressione enter para continuar");
             sc.nextLine();
             app.menu();
-            opcao = app.readInt("Digite a opção desejada: ", true);
+            opcao = app.readInt("Digite a opção desejada: ", false);
         }
     }
 
-    public double readDouble(String message, Boolean isPositive) {
-        return readNumber(message, Double::parseDouble, isPositive);
+    public double readDouble(String message, Boolean requiredPositiveNumber) {
+        return readNumber(message, Double::parseDouble, requiredPositiveNumber);
     }
 
-    public int readInt(String message, Boolean isPositive) {
-        return readNumber(message, Integer::parseInt, isPositive);
+    public int readInt(String message, Boolean requiredPositiveNumber) {
+        return readNumber(message, Integer::parseInt, requiredPositiveNumber);
     }
   
-    private <T> T readNumber(String message, NumberParser<T> parser, Boolean isPositive) {
+    private <T> T readNumber(String message, NumberParser<T> parser, Boolean requiredPositiveNumber) {
         boolean isValid = false;
         T number = null;
         while (!isValid) {
@@ -65,7 +65,7 @@ public class App {
                 System.out.println("Número inválido");
             }
 
-            if (isPositive && isValid) {
+            if (requiredPositiveNumber && isValid) {
                 if (number instanceof Double) { // transformar em double para melhorar a precisão
                     isValid = (Double) number > 0;
                 } else if (number instanceof Integer) {
