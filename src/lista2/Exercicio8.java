@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class Exercicio8 {
     
-    private App app = new App();
-
     public void solved () {
         Scanner sc = new Scanner(System.in);
         String numeroCartao = lerNumeroCartao(sc);
