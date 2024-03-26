@@ -5,13 +5,14 @@ public class Main {
     private void menu() {
         System.out.println("Selecione a lista que deseja entrar (digite o número correspondente): ");
         System.out.println("1 - Lista 1");
+        System.out.println("2 - Lista 2");
         System.out.println("0 - Sair");
     }
 
     public static void main(String[] args) {
         Main main = new Main();
         Scanner scanner = new Scanner(System.in);
-        String[] listaClasses = {"lista1.App"};
+        String[] listaClasses = {"lista1.App", "lista2.App"};
         
         boolean controleLaco = true;
         while (controleLaco) {
