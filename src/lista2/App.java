@@ -1,27 +1,24 @@
 package lista2;
 
-import java.util.Scanner;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Scanner;
 
-/**
- * App
- */
 public class App {
 
     public static Scanner sc = new Scanner(System.in);
-    
+
     private void menu() {
         clearConsole();
-        System.out.println("0 - Sair");
         System.out.println("1 - Exercicio 1");
         System.out.println("2 - Exercicio 2");
         System.out.println("3 - Exercicio 3");
         System.out.println("4 - Exercicio 4");
         System.out.println("5 - Exercicio 5");
         System.out.println("6 - Exercicio 6");
-        System.out.println("7 - Exercicio 7");
+        System.out. println("7 - Exercicio 7");
         System.out.println("8 - Exercicio 8");
+        System.out.println("0 - Sair");
     }
 
     public static void main(String[] args) {
@@ -31,27 +28,22 @@ public class App {
         while (opcao != 0) {
             try {
                 if (opcao >= 1 && opcao <= 8) {
-                    clearConsole();
-                    Class<?> exercicioClass = Class.forName("lista2.Exercicio" + opcao);
+                    Class<?> exercicioClass = Class.forName("lista1.Exercicio" + opcao);
                     Object exercicio = exercicioClass.getDeclaredConstructor().newInstance();
                     Method solvedMethod = exercicioClass.getDeclaredMethod("solved");
                     solvedMethod.invoke(exercicio);
                 } else {
                     System.out.println("Opção inválida");
                 }
-            } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InstantiationException
-                    | InvocationTargetException e) {
+            } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
                 System.out.println("Erro ao executar o exercício: " + e.getMessage());
             }
-
             System.out.println("Pressione enter para continuar");
             sc.nextLine();
             app.menu();
             opcao = app.readInt("Digite a opção desejada: ", false);
         }
-
     }
-    
 
     public double readDouble(String message, Boolean requiredPositiveNumber) {
         return readNumber(message, Double::parseDouble, requiredPositiveNumber);
@@ -61,6 +53,10 @@ public class App {
         return readNumber(message, Integer::parseInt, requiredPositiveNumber);
     }
 
+    public String readString() {
+        return sc.nextLine();
+    }
+  
     private <T> T readNumber(String message, NumberParser<T> parser, Boolean requiredPositiveNumber) {
         boolean isValid = false;
         T number = null;
