@@ -9,21 +9,21 @@ public class Exercicio1 {
     
     public void solved()
     {
-        int[] arrays = new int[10];
+        int[] array = new int[10];
         int maior = Integer.MIN_VALUE;
         int menor = Integer.MAX_VALUE;
         int posicaoMax = 0;
         int posicaoMin = 0;
 
-        for (int i = 0; i < arrays.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             System.out.println("Digite a posição " + i + " do array");
-            arrays[i] = app.readInt("Digite um número inteiro", false);
-            if (arrays[i] > maior) {
-                maior = arrays[i];
+            array[i] = app.readInt("Digite um número inteiro", false);
+
+            if (array[i] > maior) {
+                maior = array[i];
                 posicaoMax = i;
-            }
-            if (arrays[i] < menor) {
-                menor = arrays[i];
+            } else if (array[i] < menor) {
+                menor = array[i];
                 posicaoMin = i;
             }
         }
