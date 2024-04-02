@@ -28,7 +28,7 @@ public class App {
         while (opcao != 0) {
             try {
                 if (opcao >= 1 && opcao <= 8) {
-                    Class<?> exercicioClass = Class.forName("lista1.Exercicio" + opcao);
+                    Class<?> exercicioClass = Class.forName("lista2.Exercicio" + opcao);
                     Object exercicio = exercicioClass.getDeclaredConstructor().newInstance();
                     Method solvedMethod = exercicioClass.getDeclaredMethod("solved");
                     solvedMethod.invoke(exercicio);
